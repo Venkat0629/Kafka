@@ -9,10 +9,4 @@ ENV KAFKA_PROCESS_ROLES=broker,controller \
 
 EXPOSE 9092 9093
 
-# Format storage before starting Kafka
-RUN kafka-storage format \
-    --config /etc/kafka/server.properties \
-    --cluster-id="$(kafka-storage random-uuid)" \
-    --ignore-formatted
-
-CMD ["bash", "-c", "exec kafka-server-start /etc/kafka/server.properties"]
+CMD ["bash", "-c", "kafka-storage format --config /etc/kafka/server.properties --cluster-id=$(kafka-storage random-uuid) --ignore-formatted && exec kafka-server-start /etc/kafka/server.properties"]
