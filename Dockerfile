@@ -9,4 +9,5 @@ ENV KAFKA_PROCESS_ROLES=broker,controller \
 
 EXPOSE 9092 9093
 
-CMD ["bash", "-c", "exec kafka-server-start /etc/kafka/server.properties"]
+#CMD ["bash", "-c", "exec kafka-server-start /etc/kafka/server.properties"]
+CMD ["bash", "-c", "exec kafka-server-start /etc/kafka/kraft/server.properties"]
