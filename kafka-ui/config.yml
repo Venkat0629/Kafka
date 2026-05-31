@@ -1,0 +1,4 @@
+kafka:
+  clusters:
+    - name: railway-cluster
+      bootstrapServers: kafka-production-e850.up.railway.app:9092
