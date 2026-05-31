@@ -7,6 +7,8 @@ ENV KAFKA_PROCESS_ROLES=broker,controller \
     KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka-production-e850.up.railway.app:9092 \
     KAFKA_LOG_DIRS=/tmp/kraft-combined-logs
 
+COPY server.properties /etc/kafka/server.properties
+
 EXPOSE 9092 9093
 
 CMD ["bash", "-c", "kafka-storage format --config /etc/kafka/server.properties --cluster-id=$(kafka-storage random-uuid) --ignore-formatted && exec kafka-server-start /etc/kafka/server.properties"]
