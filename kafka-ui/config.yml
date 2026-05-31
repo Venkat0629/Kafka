@@ -2,3 +2,7 @@ kafka:
   clusters:
     - name: railway-cluster
       bootstrapServers: kafka-production-e850.up.railway.app:9092
+      properties: {}
+      # Enable topic creation and deletion
+      uiOptions:
+        readOnly: false
